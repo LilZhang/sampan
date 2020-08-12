@@ -26,4 +26,4 @@ RUN \
 # -> 86
 EXPOSE 22
 
-ENTRYPOINT ["tail", "-f", "/root/anaconda-ks.cfg"]
+CMD ["tail", "-f", "/root/anaconda-ks.cfg"]
