@@ -13,4 +13,4 @@ MAINTAINER from lilzh.com by lilzhang90s (lilzhang90s@163.com)
 # -> 86
 EXPOSE 22
 
-CMD ["tail", "-f", "/root/anaconda-ks.cfg"]
+CMD ["/bin/bash"]

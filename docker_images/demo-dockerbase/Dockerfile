@@ -1,9 +1,7 @@
 # just demo
 # author: lilzh
-# TODO: ssh,
-# TODO: java, db, 
+# TODO: java, db
 
-# centos:centos7.5.1804
 FROM centos:centos7.5.1804
 
 MAINTAINER from lilzh.com by lilzhang90s (lilzhang90s@163.com)
@@ -19,11 +17,6 @@ RUN \
   cp /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.bak && \
   wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo && \
   yum clean all && \
-  yum -y makecache && \
-  yum -y install openssh-server
+  yum -y makecache
 
-
-# -> 86
-EXPOSE 22
-
-CMD ["tail", "-f", "/root/anaconda-ks.cfg"]
+CMD ["/bin/bash"]
