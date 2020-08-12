@@ -19,11 +19,11 @@ RUN \
   cp /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.bak && \
   wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo && \
   yum clean all && \
-  yum -y makecache
-
+  yum -y makecache && \
+  yum -y install openssh-server
 
 
 # -> 86
 EXPOSE 22
 
-ENTRYPOINT ["tail", "-f", "/var/log"]
+ENTRYPOINT ["tail", "-f", "/root/anaconda-ks.cfg"]
