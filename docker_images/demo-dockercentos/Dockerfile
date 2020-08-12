@@ -11,4 +11,4 @@ MAINTAINER from lilzh.com by lilzhang90s (lilzhang90s@163.com)
 # -> 86
 EXPOSE 22
 
-ENTRYPOINT ["tail", "-f", "/var/log"]
+CMD ["tail", "-f", "/var/log"]
