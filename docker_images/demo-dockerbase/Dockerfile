@@ -17,6 +17,7 @@ RUN \
   cp /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.bak && \
   wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo && \
   yum clean all && \
-  yum -y makecache
+  yum -y makecache && \
+  yum -y install git
 
 CMD ["/bin/bash"]
