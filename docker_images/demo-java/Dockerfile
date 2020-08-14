@@ -9,6 +9,7 @@ MAINTAINER from lilzh.com by lilzhang90s (lilzhang90s@163.com)
 RUN \
   apk update && \
   apk add openjdk8=8.252.09-r0 && \
+  apk add maven=3.6.3-r0 && \
   rm -rf /tmp/* /var/cache/apk/*
 
 CMD ["/bin/sh"]
