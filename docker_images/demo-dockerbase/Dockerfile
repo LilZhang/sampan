@@ -7,6 +7,7 @@ FROM alpine:3.12.0
 MAINTAINER from lilzh.com by lilzhang90s (lilzhang90s@163.com)
 
 RUN \
+  sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
   apk update && \
   apk add git=2.26.2-r0 && \
   apk add busybox=1.31.1-r16 && \
@@ -16,6 +17,6 @@ RUN \
   date && \
   echo Asia/Shanghai > /etc/timezone && \
   apk del tzdata && \
-  rm -rf /tmp/* /var/cache/apk/* && \
+  rm -rf /tmp/* /var/cache/apk/*
 
 CMD ["/bin/sh"]
