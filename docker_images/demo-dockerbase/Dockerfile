@@ -2,22 +2,20 @@
 # author: lilzh
 # TODO: java, db
 
-FROM centos:centos7.5.1804
+FROM alpine:3.12.0
 
 MAINTAINER from lilzh.com by lilzhang90s (lilzhang90s@163.com)
 
 RUN \
-  yum -y install wget epel-release && \
-  cp /etc/yum/pluginconf.d/fastestmirror.conf /etc/yum/pluginconf.d/fastestmirror.conf.bak && \
-  sed -i 's/enabled=1/enabled=0/g' /etc/yum/pluginconf.d/fastestmirror.conf && \
-  cp /etc/yum.conf /etc/yum.conf.bak && \
-  sed -i 's/plugins=1/plugins=0/g' /etc/yum.conf && \
-  cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak && \
-  wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo && \
-  cp /etc/yum.repos.d/epel.repo /etc/yum.repos.d/epel.repo.bak && \
-  wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo && \
-  yum clean all && \
-  yum -y makecache && \
-  yum -y install git
+  apk update && \
+  apk add git=2.28.0-r1 && \
+  apk add busybox=1.32.0-r1 && \
+  apk add tzdata=2020a-r0 && \
+  apk add curl=7.71.1-r0 && \
+  cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+  date && \
+  echo Asia/Shanghai > /etc/timezone && \
+  apk del tzdata && \
+  rm -rf /tmp/* /var/cache/apk/* && \
 
-CMD ["/bin/bash"]
+CMD ["/bin/sh"]
