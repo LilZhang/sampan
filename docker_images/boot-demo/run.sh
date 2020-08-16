@@ -1,6 +1,8 @@
 #!/bin/sh
 # author:lilzhang90s
 
+echo "10.8.0.14    nexus.lilzh.com" >> /etc/hosts
+
 mkdir -p /biz
 
 cd /biz
