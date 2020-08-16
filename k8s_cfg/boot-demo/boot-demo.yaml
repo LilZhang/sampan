@@ -20,6 +20,9 @@ metadata:
   namespace: demo-test
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: boot-demo
   template:
     metadata:
       namespace: demo-test
